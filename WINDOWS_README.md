@@ -50,7 +50,60 @@ Or:
   8. Click "OK" to save the changes.
   9. Close any open command prompt or application windows and reopen them for the changes to take effect.
 
-Now you can use `%OPENAI_API_KEY%` when prompted to input your key.
+### Installing and Using Poetry
+
+If you're working with the development version and need to use Poetry:
+
+1. **Install Poetry** (if you haven't already):
+   - Open PowerShell as administrator and run:
+     ```
+     (Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | python -
+     ```
+   - Or install with pip:
+     ```
+     pip install poetry
+     ```
+
+2. **Troubleshooting Poetry Command Not Found**:
+
+   If you installed Poetry but get "'poetry' is not recognized as an internal or external command", you need to add Poetry to your PATH:
+
+   - **Option 1: Run with full path** (quick solution):
+     ```
+     %APPDATA%\Python\Python3XX\Scripts\poetry install
+     %APPDATA%\Python\Python3XX\Scripts\poetry shell
+     ```
+     Replace `3XX` with your Python version (e.g., `310` for Python 3.10, `313` for Python 3.13)
+
+   - **Option 2: Add Poetry to PATH** (permanent solution):
+     - Press Win+I to open Settings
+     - Search for "Edit environment variables for your account"
+     - Under "User variables", find the PATH variable and click Edit
+     - Click New and add: `%APPDATA%\Python\Python3XX\Scripts`
+     - Click OK, close all command prompts, and open a new one
+
+   - **Option 3: Temporary PATH update** (for current session only):
+     ```
+     set PATH=%PATH%;%APPDATA%\Python\Python3XX\Scripts
+     ```
+
+3. **Run poetry install**:
+   - Navigate to your gpt-engineer directory:
+     ```
+     cd path\to\gpt-engineer
+     ```
+   - Run the install command:
+     ```
+     poetry install
+     ```
+
+4. **Activate the virtual environment**:
+   - After installation, activate the environment:
+     ```
+     poetry shell
+     ```
+
+This will install all dependencies defined in your `pyproject.toml` file and create a virtual environment for your project.
 
 ### Run
 

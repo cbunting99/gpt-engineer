@@ -37,14 +37,37 @@ We actively support Python 3.10 - 3.12. The last version to support Python 3.8 -
 
 ### Setup API key
 
+gpt-engineer supports multiple AI service providers:
+
+#### OpenAI (Default)
 Choose **one** of:
 - Export env variable (you can add this to .bashrc so that you don't have to do it each time you start the terminal)
     - `export OPENAI_API_KEY=[your api key]`
 - .env file:
     - Create a copy of `.env.template` named `.env`
-    - Add your OPENAI_API_KEY in .env
+    - Add your `OPENAI_API_KEY` in .env
+
+#### Anthropic (Claude)
+- Export env variable:
+    - `export ANTHROPIC_API_KEY=[your Anthropic API key]`
+- .env file:
+    - Add your `ANTHROPIC_API_KEY` to .env
+
+#### Google Gemini
+- Export env variable:
+    - `export GOOGLE_API_KEY=[your Google API key]`
+- .env file:
+    - Add your `GOOGLE_API_KEY` to .env
+
+#### Model Selection
+You can specify which model to use by setting the `MODEL_NAME` environment variable. For example:
+- OpenAI: `gpt-4`, `gpt-3.5-turbo`
+- Anthropic: `claude-3-5-sonnet-20240620`, `claude-3-opus-20240229`
+- Google: `gemini-pro`
+
+#### Other Options
 - Custom model:
-    - See [docs](https://gpt-engineer.readthedocs.io/en/latest/open_models.html), supports local model, azure, etc.
+    - See [docs](https://gpt-engineer.readthedocs.io/en/latest/open_models.html), supports local models, Azure OpenAI, etc.
 
 Check the [Windows README](./WINDOWS_README.md) for Windows usage.
 
@@ -93,6 +116,29 @@ The gptengineer.app team is actively supporting the open source community.
 You can specify the "identity" of the AI agent by overriding the `preprompts` folder with your own version of the `preprompts`. You can do so via the `--use-custom-preprompts` argument.
 
 Editing the `preprompts` is how you make the agent remember things between projects.
+
+### Supported AI Models
+
+gpt-engineer supports multiple AI providers:
+
+#### OpenAI Models (Default)
+- **GPT-4** family: Best for complex code generation tasks
+- **GPT-3.5 Turbo**: Faster and more cost-effective for simpler tasks
+- **Azure OpenAI Service**: Enterprise-ready deployment of OpenAI models
+
+#### Anthropic Claude Models
+- **Claude 3.5 Sonnet**: Latest model with enhanced code generation capabilities 
+- **Claude 3 Opus**: High-performance model for complex reasoning
+- **Claude 3 Sonnet/Haiku**: More cost-effective options with varying capabilities
+
+#### Google Gemini Models
+- **Gemini Pro**: Google's advanced model for code generation and reasoning
+
+#### Open Source Models
+With additional setup, you can run with open-source models like:
+- **LLaMA**, **WizardCoder**, and other self-hosted LLMs
+
+See the [documentation](https://gpt-engineer.readthedocs.io/en/latest/open_models.html) for detailed setup instructions for each provider.
 
 ### Vision
 

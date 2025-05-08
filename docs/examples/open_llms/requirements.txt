@@ -1,0 +1,11 @@
+# OpenAI API
+openai>=1.0.0
+
+# Anthropic API
+anthropic>=0.8.0
+
+# Google Gemini API
+google-generativeai>=0.3.0
+
+# LangChain (for langchain_interface.py)
+langchain-openai>=0.0.5
